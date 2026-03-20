@@ -129,7 +129,9 @@ p { line-height: 1.75; margin-bottom: 0.9rem; color: rgba(245,240,232,0.82); fon
 .outcome.point .result { color: var(--gold); }
 
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 10px; }
-.bets-table { width: 100%; border-collapse: collapse; font-size: clamp(0.8rem,2.2vw,0.9rem); min-width: 500px; }
+.bets-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: clamp(0.8rem,2.2vw,0.9rem); min-width: 500px; }
+.bets-table th:first-child, .bets-table td:first-child { width: 38%; }
+.bets-table th:nth-child(2), .bets-table td:nth-child(2) { width: 18%; }
 .bets-table th {
   font-family: 'Bebas Neue', sans-serif; font-size: clamp(0.85rem,2.5vw,1rem);
   letter-spacing: 0.06em; color: var(--gold); text-align: left;
@@ -459,14 +461,17 @@ ul, ol { padding-left: 1.4rem; color: rgba(245,240,232,0.8); line-height: 2.1; f
 }
 .accordion-body.open { display: block; animation: fadeIn 0.2s ease; }
 
-.odds-table { width: 100%; border-collapse: collapse; font-size: clamp(0.8rem,2.2vw,0.88rem); margin-top: 0.75rem; }
+.odds-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: clamp(0.8rem,2.2vw,0.9rem); min-width: 380px; }
 .odds-table th {
-  font-family: 'Bebas Neue', sans-serif; font-size: clamp(0.8rem,2.2vw,0.9rem);
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(0.85rem,2.5vw,1rem);
   letter-spacing: 0.06em; color: var(--gold); text-align: left;
-  padding: 0.5rem 0.7rem; border-bottom: 1px solid rgba(212,168,67,0.25);
-  background: rgba(0,0,0,0.15);
+  padding: 0.65rem 0.75rem; border-bottom: 1px solid rgba(212,168,67,0.3);
+  background: rgba(0,0,0,0.2);
 }
-.odds-table td { padding: 0.5rem 0.7rem; border-bottom: 1px solid rgba(255,255,255,0.04); color: rgba(245,240,232,0.78); vertical-align: top; }
+.odds-table th:first-child, .odds-table td:first-child { width: 36%; }
+.odds-table th:not(:first-child), .odds-table td:not(:first-child) { text-align: center; }
+.odds-table td { padding: 0.65rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.04); color: rgba(245,240,232,0.78); vertical-align: top; line-height: 1.5; }
+.odds-table tr:hover td { background: rgba(255,255,255,0.025); }
 .odds-table tr:last-child td { border-bottom: none; }
 .odds-table .highlight { color: var(--green-bright); font-weight: 600; }
 
@@ -494,18 +499,22 @@ ul, ol { padding-left: 1.4rem; color: rgba(245,240,232,0.8); line-height: 2.1; f
 .steps-list { list-style: none; padding: 0; counter-reset: steps; }
 .steps-list li {
   counter-increment: steps;
-  display: flex; gap: 0.9rem; align-items: flex-start;
+  display: grid;
+  grid-template-columns: 2rem 9rem 1fr;
+  column-gap: 0.9rem;
+  align-items: start;
   padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
   font-size: clamp(0.86rem,2.3vw,0.95rem); color: rgba(245,240,232,0.82); line-height: 1.6;
 }
 .steps-list li:last-child { border-bottom: none; }
+.steps-list li strong { color: var(--cream); }
 .steps-list li::before {
   content: counter(steps);
   font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.04em;
   background: var(--felt); border: 1px solid rgba(212,168,67,0.3);
   color: var(--gold); border-radius: 50%;
   width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 0.05rem;
+  margin-top: 0.1rem;
 }
 
 .sponsor-zone {
