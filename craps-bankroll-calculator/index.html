@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d1f14">
+
+<title>Craps Bankroll Calculator: How Much to Bring to the Table</title>
+<meta name="description" content="Free craps bankroll calculator. Enter your table minimum, odds multiplier, and session length to see how much you need. Includes expected loss, variance, and survival probability.">
+<meta name="keywords" content="craps bankroll calculator, craps bankroll management, how much money for craps, craps session budget, craps variance, craps expected loss">
+<meta name="author" content="CrapsGuide.fun">
+<link rel="canonical" href="https://crapsguide.fun/craps-bankroll-calculator/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Craps Bankroll Calculator: How Much to Bring to the Table">
+<meta property="og:description" content="Free craps bankroll calculator. Enter your table minimum, odds, and session length to see how much you need.">
+<meta property="og:url" content="https://crapsguide.fun/craps-bankroll-calculator/">
+<meta property="og:site_name" content="CrapsGuide.fun">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Craps Bankroll Calculator: How Much to Bring to the Table">
+<meta name="twitter:description" content="Free craps bankroll calculator. See how much you need for your session.">
+
+<meta name="robots" content="index, follow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Craps Bankroll Calculator",
+  "description": "Calculate how much money to bring to a craps table based on table minimum, odds, and session length.",
+  "url": "https://crapsguide.fun/craps-bankroll-calculator/",
+  "applicationCategory": "Calculator",
+  "operatingSystem": "Any",
+  "author": { "@type": "Organization", "name": "CrapsGuide.fun", "url": "https://crapsguide.fun/" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{--felt:#1a4a2e;--felt-dark:#123520;--gold:#d4a843;--gold-dim:#a07a28;--cream:#f5f0e8;--dark:#0d1f14;--green-bright:#4ade80;--red-bright:#f87171;--blue-bright:#60a5fa}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;background-image:radial-gradient(ellipse at 15% 40%,rgba(26,74,46,0.35) 0%,transparent 55%),radial-gradient(ellipse at 85% 15%,rgba(212,168,67,0.07) 0%,transparent 50%)}
+
+.breadcrumb{max-width:860px;margin:0 auto;padding:clamp(1rem,3vw,1.5rem) clamp(1rem,4vw,1.75rem) 0;font-size:0.8rem;color:rgba(245,240,232,0.4)}
+.breadcrumb a{color:var(--gold-dim);text-decoration:none}
+.breadcrumb a:hover{color:var(--gold)}
+
+header{text-align:center;padding:clamp(1.5rem,4vw,2.5rem) 1rem clamp(1rem,3vw,1.5rem)}
+header h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,8vw,4rem);letter-spacing:0.05em;color:var(--gold);text-shadow:0 0 50px rgba(212,168,67,0.25);line-height:1.05}
+header .subtitle{color:rgba(245,240,232,0.5);font-size:clamp(0.7rem,2.5vw,0.95rem);letter-spacing:0.18em;text-transform:uppercase;margin-top:0.4rem}
+
+.container{max-width:860px;margin:0 auto;padding:0 clamp(1rem,4vw,1.75rem) 3rem}
+p{line-height:1.75;margin-bottom:0.9rem;color:rgba(245,240,232,0.82);font-size:clamp(0.9rem,2.5vw,1rem)}
+strong{font-weight:600}
+
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,5vw,2rem);color:var(--gold);letter-spacing:0.06em;margin-bottom:0.9rem;margin-top:2rem}
+
+.calculator{background:var(--felt);border:2px solid rgba(212,168,67,0.2);border-radius:18px;padding:clamp(1.25rem,4vw,2rem);margin:1.5rem 0}
+
+.input-group{margin-bottom:1.25rem}
+.input-group label{display:block;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.4rem}
+.input-group .hint{font-size:0.75rem;color:rgba(245,240,232,0.4);margin-bottom:0.4rem}
+
+.input-row{display:flex;gap:0.5rem;flex-wrap:wrap}
+.input-row .option{flex:1;min-width:60px;padding:0.6rem 0.5rem;background:var(--felt-dark);border:1px solid rgba(212,168,67,0.18);border-radius:10px;text-align:center;cursor:pointer;transition:all 0.2s;font-family:'Bebas Neue',sans-serif;font-size:1rem;color:rgba(245,240,232,0.5);letter-spacing:0.04em}
+.input-row .option:hover{border-color:rgba(212,168,67,0.4);color:rgba(245,240,232,0.7)}
+.input-row .option.active{border-color:var(--gold);color:var(--gold);background:rgba(212,168,67,0.08)}
+
+.results{margin-top:1.5rem;display:none}
+.results.show{display:block}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;margin:1rem 0}
+.result-card{background:var(--felt-dark);border:1px solid rgba(212,168,67,0.18);border-radius:12px;padding:1rem;text-align:center}
+.result-card .result-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(245,240,232,0.4);margin-bottom:0.25rem}
+.result-card .result-value{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,4vw,1.8rem);letter-spacing:0.04em}
+.result-card .result-value.green{color:var(--green-bright)}
+.result-card .result-value.gold{color:var(--gold)}
+.result-card .result-value.red{color:var(--red-bright)}
+.result-card .result-value.blue{color:var(--blue-bright)}
+
+.result-explain{margin-top:1rem;padding:1rem;background:rgba(0,0,0,0.15);border-radius:10px;font-size:0.85rem;line-height:1.65;color:rgba(245,240,232,0.6)}
+.result-explain strong{color:var(--gold)}
+
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(212,168,67,0.15);border-radius:14px;padding:clamp(1rem,3vw,1.5rem);margin-bottom:1rem}
+.card h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.1rem,3.5vw,1.35rem);color:var(--gold);letter-spacing:0.05em;margin-bottom:0.6rem}
+
+ul{margin:0.5rem 0 1rem 1.5rem;color:rgba(245,240,232,0.75);font-size:clamp(0.85rem,2.3vw,0.95rem);line-height:1.75}
+
+.cta-link{display:inline-block;margin-top:1.5rem;padding:0.75rem 1.5rem;border-radius:10px;background:var(--felt);border:1px solid rgba(212,168,67,0.3);color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.06em;text-decoration:none;transition:all 0.2s}
+.cta-link:hover{background:rgba(212,168,67,0.12);border-color:var(--gold)}
+
+footer{margin-top:2rem;padding:2rem clamp(1rem,4vw,1.75rem);background:rgba(0,0,0,0.3);text-align:center}
+.disclaimer-text{max-width:600px;margin:0.5rem auto 0;font-size:0.75rem;color:rgba(245,240,232,0.35);line-height:1.6}
+.disclaimer-text a{color:var(--gold-dim)}
+footer .disclaimer-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:rgba(245,240,232,0.4);letter-spacing:0.08em}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">CrapsGuide.fun</a> <span>&rsaquo;</span> Bankroll Calculator
+</nav>
+
+<header>
+  <h1>Craps Bankroll Calculator</h1>
+  <div class="subtitle">Know Exactly How Much to Bring</div>
+</header>
+
+<main class="container">
+
+  <p>The most common mistake beginners make at craps is not bringing enough money. Sit down with too little and a normal cold streak wipes you out before the table even has a chance to turn. This calculator tells you how much to bring based on how you actually plan to play.</p>
+
+  <div class="calculator">
+    <div class="input-group">
+      <label>Table Minimum</label>
+      <div class="hint">The Pass Line minimum at your table</div>
+      <div class="input-row" id="minBet">
+        <div class="option" data-val="5">$5</div>
+        <div class="option active" data-val="10">$10</div>
+        <div class="option" data-val="15">$15</div>
+        <div class="option" data-val="25">$25</div>
+        <div class="option" data-val="50">$50</div>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Odds Multiplier</label>
+      <div class="hint">How much you will place behind the Pass Line (most casinos offer 3-4-5x)</div>
+      <div class="input-row" id="oddsMulti">
+        <div class="option" data-val="0">None</div>
+        <div class="option" data-val="1">1x</div>
+        <div class="option" data-val="2">2x</div>
+        <div class="option active" data-val="3.5">3-4-5x</div>
+        <div class="option" data-val="5">5x</div>
+        <div class="option" data-val="10">10x</div>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Session Length</label>
+      <div class="hint">How long you plan to be at the table (about 100 rolls per hour)</div>
+      <div class="input-row" id="sessionLen">
+        <div class="option" data-val="1">1 Hour</div>
+        <div class="option active" data-val="2">2 Hours</div>
+        <div class="option" data-val="3">3 Hours</div>
+        <div class="option" data-val="4">4 Hours</div>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label>Risk Tolerance</label>
+      <div class="hint">How confident do you want to be that your bankroll lasts the full session?</div>
+      <div class="input-row" id="riskTol">
+        <div class="option" data-val="0.80">Comfortable (80%)</div>
+        <div class="option active" data-val="0.90">Safe (90%)</div>
+        <div class="option" data-val="0.95">Very Safe (95%)</div>
+      </div>
+    </div>
+
+    <div class="results show" id="results">
+      <div class="result-grid">
+        <div class="result-card">
+          <div class="result-label">Recommended Bankroll</div>
+          <div class="result-value green" id="recBank">$400</div>
+        </div>
+        <div class="result-card">
+          <div class="result-label">Total Action per Round</div>
+          <div class="result-value gold" id="actionRound">$45</div>
+        </div>
+        <div class="result-card">
+          <div class="result-label">Expected Loss</div>
+          <div class="result-value red" id="expLoss">-$8.40</div>
+        </div>
+        <div class="result-card">
+          <div class="result-label">Combined House Edge</div>
+          <div class="result-value blue" id="combEdge">0.37%</div>
+        </div>
+      </div>
+      <div class="result-explain" id="explain"></div>
+    </div>
+  </div>
+
+  <div class="section-title">&#x1F4A1; Bankroll Rules of Thumb</div>
+
+  <div class="card">
+    <h3>The 30x Rule</h3>
+    <p>A common guideline is to bring at least 30 times your base bet (Pass Line only, no odds). Playing $10 Pass Line? Bring $300 minimum. This gives you enough runway to survive a normal cold streak without going bust.</p>
+  </div>
+
+  <div class="card">
+    <h3>Odds Bets Cost More Per Round but Less Per Dollar</h3>
+    <p>Taking odds increases your total money at risk per round, which means bigger swings. But because the odds bet has 0% house edge, it actually reduces the percentage the casino takes from your total action. The net effect: you need a bigger starting stack, but your expected loss per hour barely changes. The extra money is just riding on a fair coin flip.</p>
+  </div>
+
+  <div class="card">
+    <h3>The Table Minimum Is Your Real Cost Driver</h3>
+    <p>A $5 table with 2x odds is significantly cheaper per hour than a $25 table with 10x odds. The Pass Line bet is the only part the casino profits from. Everything behind it is mathematically fair. So the lower the minimum, the less the casino takes, period. If you are budget-conscious, finding a low-minimum table matters more than finding high odds.</p>
+  </div>
+
+  <div class="card">
+    <h3>Stop-Loss Is Not a Strategy</h3>
+    <p>Setting a "walk away if I lose $X" number does not change your expected loss or the house edge. What it does is prevent emotional decision-making after a bad streak. That is worth something. Pick a number before you sit down and stick to it. The math does not care, but your future self will appreciate the discipline.</p>
+  </div>
+
+  <p style="margin-top:2rem; text-align:center;">
+    <a href="/craps-odds-chart/" class="cta-link">&#x1F4CA; Full Odds &amp; Payout Chart</a>
+    <br>
+    <a href="/" class="cta-link">&#x1F3B2; Practice Free with Our Simulator</a>
+  </p>
+
+</main>
+
+<footer>
+  <div class="disclaimer-title">For Entertainment Purposes Only</div>
+  <p class="disclaimer-text">
+    This guide is an educational resource about the game of craps, provided for entertainment purposes only.
+    Nothing on this page constitutes gambling advice. All casino games involve risk.
+    Please gamble responsibly. Help is available through the
+    <a href="https://www.ncpgambling.org" target="_blank" rel="noopener noreferrer">National Council on Problem Gambling</a>
+    or by calling 1-800-522-4700.
+  </p>
+</footer>
+
+<script>
+function getVal(id) {
+  const el = document.getElementById(id).querySelector('.option.active');
+  return parseFloat(el.dataset.val);
+}
+
+document.querySelectorAll('.input-row').forEach(row => {
+  row.querySelectorAll('.option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      row.querySelectorAll('.option').forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      calculate();
+    });
+  });
+});
+
+function calculate() {
+  const minBet = getVal('minBet');
+  const oddsMulti = getVal('oddsMulti');
+  const hours = getVal('sessionLen');
+  const confidence = getVal('riskTol');
+
+  const rollsPerHour = 100;
+  // About 30% of rolls are come-out, 70% point phase. Roughly 1 resolved bet per 3.4 rolls.
+  const betsPerHour = rollsPerHour / 3.4;
+  const totalBets = betsPerHour * hours;
+
+  // Average odds bet (3-4-5x normalizes to about 3.5x average across points)
+  const avgOdds = minBet * oddsMulti;
+  const totalPerBet = minBet + avgOdds;
+
+  // House edge on pass line only
+  const passEdge = 0.0141;
+  // Combined edge: only the flat bet has edge
+  const combinedEdge = (minBet * passEdge) / totalPerBet;
+  const effectiveEdge = totalPerBet > 0 ? combinedEdge : passEdge;
+
+  // Expected loss
+  const expectedLoss = totalBets * totalPerBet * effectiveEdge;
+
+  // Standard deviation per bet (approximation for pass + odds)
+  // Pass line SD per bet is about 1.0 * bet. With odds, SD increases.
+  const sdPerBet = totalPerBet * 1.0;
+  const sessionSD = sdPerBet * Math.sqrt(totalBets);
+
+  // Z-scores for confidence levels
+  const zScores = { 0.80: 0.84, 0.90: 1.28, 0.95: 1.65 };
+  const z = zScores[confidence] || 1.28;
+
+  const recommendedBankroll = Math.ceil((expectedLoss + z * sessionSD) / 50) * 50;
+  const bankroll = Math.max(recommendedBankroll, minBet * 20);
+
+  document.getElementById('recBank').textContent = '$' + bankroll.toLocaleString();
+  document.getElementById('actionRound').textContent = '$' + totalPerBet.toFixed(0);
+  document.getElementById('expLoss').textContent = '-$' + expectedLoss.toFixed(2);
+  document.getElementById('combEdge').textContent = (effectiveEdge * 100).toFixed(2) + '%';
+
+  const confPct = Math.round(confidence * 100);
+  document.getElementById('explain').innerHTML =
+    `With a <strong>$${minBet} Pass Line</strong> bet and <strong>${oddsMulti === 3.5 ? '3-4-5x' : oddsMulti + 'x'} odds</strong> over <strong>${hours} hour${hours > 1 ? 's' : ''}</strong> (~${Math.round(totalBets)} resolved bets), ` +
+    `your total action per round is <strong>$${totalPerBet.toFixed(0)}</strong>. ` +
+    `The combined house edge is <strong>${(effectiveEdge * 100).toFixed(2)}%</strong>, ` +
+    `giving an expected loss of about <strong>$${expectedLoss.toFixed(2)}</strong>. ` +
+    `To have a <strong>${confPct}%</strong> chance of lasting the full session without going bust, ` +
+    `bring at least <strong>$${bankroll.toLocaleString()}</strong>. ` +
+    `This accounts for normal variance (cold streaks happen). The expected loss is small; the extra bankroll is insurance against bad luck.`;
+
+  document.getElementById('results').classList.add('show');
+}
+
+calculate();
+</script>
+
+</body>
+</html>

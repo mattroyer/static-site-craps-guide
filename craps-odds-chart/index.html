@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d1f14">
+
+<title>Craps Odds Chart: Every Bet's House Edge & Payout (2026)</title>
+<meta name="description" content="Complete craps odds chart showing house edge, payout, and probability for every bet. Sortable reference table from 0% (Free Odds) to 16.67% (Any 7). Know exactly what you're betting.">
+<meta name="keywords" content="craps odds chart, craps payouts, craps house edge, craps probability, craps bet odds, craps payout chart, best craps bets odds">
+<meta name="author" content="CrapsGuide.fun">
+<link rel="canonical" href="https://crapsguide.fun/craps-odds-chart/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Craps Odds Chart: Every Bet's House Edge & Payout">
+<meta property="og:description" content="Complete craps odds chart with house edge, payout, and probability for every bet on the table. From 0% edge to 16.67%.">
+<meta property="og:url" content="https://crapsguide.fun/craps-odds-chart/">
+<meta property="og:site_name" content="CrapsGuide.fun">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Craps Odds Chart: Every Bet's House Edge & Payout">
+<meta name="twitter:description" content="Complete craps odds chart with house edge, payout, and probability for every bet on the table.">
+
+<meta name="robots" content="index, follow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Craps Odds Chart: Every Bet's House Edge & Payout",
+  "description": "Complete craps odds chart showing house edge, payout, and probability for every bet on the craps table.",
+  "url": "https://crapsguide.fun/craps-odds-chart/",
+  "author": { "@type": "Organization", "name": "CrapsGuide.fun", "url": "https://crapsguide.fun/" },
+  "publisher": { "@type": "Organization", "name": "CrapsGuide.fun", "url": "https://crapsguide.fun/" },
+  "mainEntityOfPage": "https://crapsguide.fun/craps-odds-chart/",
+  "inLanguage": "en-US"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --felt: #1a4a2e;
+  --felt-dark: #123520;
+  --gold: #d4a843;
+  --gold-dim: #a07a28;
+  --cream: #f5f0e8;
+  --dark: #0d1f14;
+  --green-bright: #4ade80;
+  --red-bright: #f87171;
+  --blue-bright: #60a5fa;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--dark);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse at 15% 40%, rgba(26,74,46,0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(212,168,67,0.07) 0%, transparent 50%);
+}
+
+.breadcrumb {
+  max-width: 860px; margin: 0 auto;
+  padding: clamp(1rem,3vw,1.5rem) clamp(1rem,4vw,1.75rem) 0;
+  font-size: 0.8rem; color: rgba(245,240,232,0.4);
+}
+.breadcrumb a { color: var(--gold-dim); text-decoration: none; }
+.breadcrumb a:hover { color: var(--gold); }
+
+header { text-align: center; padding: clamp(1.5rem,4vw,2.5rem) 1rem clamp(1rem,3vw,1.5rem); }
+header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem,8vw,4rem);
+  letter-spacing: 0.05em; color: var(--gold);
+  text-shadow: 0 0 50px rgba(212,168,67,0.25); line-height: 1.05;
+}
+header .subtitle {
+  color: rgba(245,240,232,0.5);
+  font-size: clamp(0.7rem,2.5vw,0.95rem);
+  letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem;
+}
+
+.container { max-width: 860px; margin: 0 auto; padding: 0 clamp(1rem,4vw,1.75rem) 3rem; }
+
+p { line-height: 1.75; margin-bottom: 0.9rem; color: rgba(245,240,232,0.82); font-size: clamp(0.9rem,2.5vw,1rem); }
+strong { font-weight: 600; }
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem,5vw,2rem); color: var(--gold);
+  letter-spacing: 0.06em; margin-bottom: 0.9rem; margin-top: 2rem;
+}
+
+/* Rating bar */
+.edge-bar {
+  display: flex; align-items: center; gap: 0.5rem; width: 100%;
+}
+.edge-bar-track {
+  flex: 1; height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; position: relative;
+}
+.edge-bar-fill {
+  height: 100%; border-radius: 4px; transition: width 0.4s ease;
+}
+.edge-bar-label {
+  font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.03em; min-width: 3.5rem; text-align: right;
+}
+
+/* Table */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; margin: 1.5rem 0; }
+.odds-table { width: 100%; border-collapse: collapse; font-size: clamp(0.8rem,2.2vw,0.9rem); min-width: 620px; }
+.odds-table th {
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(0.85rem,2.5vw,1rem);
+  letter-spacing: 0.06em; color: var(--gold); text-align: left;
+  padding: 0.75rem; border-bottom: 1px solid rgba(212,168,67,0.3);
+  background: rgba(0,0,0,0.25); cursor: pointer; user-select: none; white-space: nowrap;
+  position: sticky; top: 0;
+}
+.odds-table th:hover { color: var(--cream); }
+.odds-table th .sort-arrow { font-size: 0.7rem; margin-left: 0.3rem; opacity: 0.4; }
+.odds-table th.sorted .sort-arrow { opacity: 1; color: var(--gold); }
+.odds-table td {
+  padding: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: rgba(245,240,232,0.78); vertical-align: middle; line-height: 1.5;
+}
+.odds-table tr:hover td { background: rgba(255,255,255,0.025); }
+.odds-table tr.best-row td { background: rgba(22,163,74,0.06); }
+.odds-table tr.worst-row td { background: rgba(192,57,43,0.04); }
+
+.edge-good { color: var(--green-bright); font-weight: 600; }
+.edge-ok   { color: var(--gold); font-weight: 600; }
+.edge-bad  { color: var(--red-bright); font-weight: 600; }
+
+.bet-tag {
+  display: inline-block; font-size: 0.6rem; padding: 0.1rem 0.4rem;
+  border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em;
+  font-weight: 600; margin-left: 0.3rem; vertical-align: middle; white-space: nowrap;
+}
+.tag-best  { background: rgba(22,163,74,0.2); color: var(--green-bright); border: 1px solid rgba(22,163,74,0.4); }
+.tag-avoid { background: rgba(192,57,43,0.18); color: var(--red-bright); border: 1px solid rgba(192,57,43,0.35); }
+.tag-ok    { background: rgba(212,168,67,0.15); color: var(--gold); border: 1px solid rgba(212,168,67,0.35); }
+
+/* Dice probability pyramid */
+.pyramid { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.5rem 0; }
+.pyramid-row { display: flex; align-items: center; gap: 0.5rem; }
+.pyramid-num {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--gold);
+  min-width: 2rem; text-align: right;
+}
+.pyramid-combos {
+  display: flex; gap: 0.25rem;
+}
+.pyramid-dot {
+  width: clamp(22px,4vw,30px); height: clamp(22px,4vw,30px);
+  background: var(--felt); border: 1px solid rgba(212,168,67,0.3);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  font-size: clamp(0.55rem,1.5vw,0.7rem); color: rgba(245,240,232,0.6);
+}
+.pyramid-dot.highlight {
+  background: rgba(212,168,67,0.15); border-color: var(--gold); color: var(--gold);
+}
+
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,168,67,0.15);
+  border-radius: 14px; padding: clamp(1rem,3vw,1.5rem); margin-bottom: 1rem;
+}
+.card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.1rem,3.5vw,1.35rem); color: var(--gold);
+  letter-spacing: 0.05em; margin-bottom: 0.6rem;
+}
+
+/* CTA link */
+.cta-link {
+  display: inline-block; margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem; border-radius: 10px;
+  background: var(--felt); border: 1px solid rgba(212,168,67,0.3);
+  color: var(--gold); font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem; letter-spacing: 0.06em;
+  text-decoration: none; transition: all 0.2s;
+}
+.cta-link:hover { background: rgba(212,168,67,0.12); border-color: var(--gold); }
+
+footer {
+  margin-top: 2rem; padding: 2rem clamp(1rem,4vw,1.75rem);
+  background: rgba(0,0,0,0.3); text-align: center;
+}
+.disclaimer-text {
+  max-width: 600px; margin: 0.5rem auto 0; font-size: 0.75rem;
+  color: rgba(245,240,232,0.35); line-height: 1.6;
+}
+.disclaimer-text a { color: var(--gold-dim); }
+footer .disclaimer-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
+  color: rgba(245,240,232,0.4); letter-spacing: 0.08em;
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">CrapsGuide.fun</a> <span>&rsaquo;</span> Craps Odds Chart
+</nav>
+
+<header>
+  <h1>Craps Odds Chart</h1>
+  <div class="subtitle">House Edge &bull; Payout &bull; Probability for Every Bet</div>
+</header>
+
+<main class="container">
+
+  <p>Every bet on the craps table has a built-in mathematical edge for the casino. Some are tiny (the Free Odds bet literally has a 0% edge), and some are brutal (Any 7 takes 16.67% of every dollar you put down). This chart lays out every bet so you can see exactly what you are paying to play.</p>
+  <p>Click any column header to sort. Green bets are where you want your money. Red bets are where the casino wants your money.</p>
+
+  <div class="table-wrap">
+    <table class="odds-table" id="oddsTable">
+      <thead>
+        <tr>
+          <th onclick="sortTable(0)" class="sorted">Bet <span class="sort-arrow">&#9650;</span></th>
+          <th onclick="sortTable(1)">Payout <span class="sort-arrow">&#9650;</span></th>
+          <th onclick="sortTable(2)">House Edge <span class="sort-arrow">&#9650;</span></th>
+          <th onclick="sortTable(3)">Win Probability <span class="sort-arrow">&#9650;</span></th>
+          <th>Verdict</th>
+        </tr>
+      </thead>
+      <tbody id="oddsBody">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title">&#x1F3B2; The Dice Probability Pyramid</div>
+  <p>Understanding why 7 shows up more than any other number is the key to understanding craps odds. There are 36 possible combinations of two dice, and 7 has the most ways to appear (6 combinations). That is why a seven-out during the point phase is the most likely outcome on any given roll.</p>
+
+  <div class="pyramid" id="pyramid"></div>
+
+  <div class="section-title">&#x1F4CA; What the House Edge Actually Means</div>
+  <p>A 5% house edge does not mean you lose 5% of the time. It means that for every $100 you wager over the long run, the casino keeps about $5. In a single session anything can happen, but over thousands of bets the math converges.</p>
+  <p>This is why bet selection matters so much in craps. If you bet $10 per roll for 100 rolls on the Pass Line (1.41% edge), you expect to lose about $14. The same 100 rolls on Any 7 (16.67% edge) costs you about $167. Same table, same rolls, wildly different cost.</p>
+
+  <div class="card">
+    <h3>The Only Bet in the Casino With 0% House Edge</h3>
+    <p>The Free Odds bet (placed behind your Pass or Come bet after a point is set) pays true mathematical odds. The casino makes zero profit on it. This is unique across every game on the floor. The more you put on odds relative to your flat bet, the lower your overall house edge drops. With 10x odds behind a Pass Line bet, your combined edge falls to just 0.18%.</p>
+    <p><a href="/pass-line-bet-explained/" class="cta-link">&#x1F449; Pass Line &amp; Free Odds Deep Dive</a></p>
+  </div>
+
+  <div class="card">
+    <h3>The Bets That Will Drain You</h3>
+    <p>Anything in the center of the table (proposition bets, hardways, Big 6/8) exists to generate profit for the casino. They look exciting, they pay big when they hit, and they bleed your bankroll faster than anything else in the building. If a dealer calls out a tempting center bet, just smile and keep your chips on the Pass Line.</p>
+    <p><a href="/worst-bets-in-craps/" class="cta-link">&#x1F449; Full Breakdown: Worst Bets in Craps</a></p>
+  </div>
+
+  <p style="margin-top:2rem; text-align:center;">
+    <a href="/" class="cta-link">&#x1F3B2; Back to the Complete Craps Guide &amp; Simulator</a>
+  </p>
+
+</main>
+
+<footer>
+  <div class="disclaimer-title">For Entertainment Purposes Only</div>
+  <p class="disclaimer-text">
+    This guide is an educational resource about the game of craps, provided for entertainment purposes only.
+    Nothing on this page constitutes gambling advice. All casino games involve risk.
+    Please gamble responsibly. Help is available through the
+    <a href="https://www.ncpgambling.org" target="_blank" rel="noopener noreferrer">National Council on Problem Gambling</a>
+    or by calling 1-800-522-4700.
+  </p>
+</footer>
+
+<script>
+const bets = [
+  { name:"Pass Line", payout:"1:1", edge:1.41, prob:49.29, cls:"good", tag:"best", tagLabel:"Best" },
+  { name:"Don't Pass", payout:"1:1", edge:1.36, prob:47.93, cls:"good", tag:"best", tagLabel:"Best" },
+  { name:"Free Odds (behind Pass)", payout:"Varies", edge:0, prob:0, cls:"good", tag:"best", tagLabel:"Best", note:"True odds" },
+  { name:"Come Bet", payout:"1:1", edge:1.41, prob:49.29, cls:"good", tag:"best", tagLabel:"Best" },
+  { name:"Don't Come", payout:"1:1", edge:1.36, prob:47.93, cls:"good", tag:"best", tagLabel:"Best" },
+  { name:"Place 6", payout:"7:6", edge:1.52, prob:45.45, cls:"ok", tag:"ok", tagLabel:"OK" },
+  { name:"Place 8", payout:"7:6", edge:1.52, prob:45.45, cls:"ok", tag:"ok", tagLabel:"OK" },
+  { name:"Place 5", payout:"7:5", edge:4.00, prob:40.00, cls:"ok", tag:null },
+  { name:"Place 9", payout:"7:5", edge:4.00, prob:40.00, cls:"ok", tag:null },
+  { name:"Place 4", payout:"9:5", edge:6.67, prob:33.33, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Place 10", payout:"9:5", edge:6.67, prob:33.33, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Field (2x on 12)", payout:"1:1 / 2:1", edge:5.56, prob:44.44, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Field (3x on 12)", payout:"1:1 / 3:1", edge:2.78, prob:44.44, cls:"bad", tag:null },
+  { name:"Big 6", payout:"1:1", edge:9.09, prob:45.45, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Big 8", payout:"1:1", edge:9.09, prob:45.45, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Hard 4", payout:"7:1", edge:11.11, prob:11.11, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Hard 10", payout:"7:1", edge:11.11, prob:11.11, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Hard 6", payout:"9:1", edge:9.09, prob:9.09, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Hard 8", payout:"9:1", edge:9.09, prob:9.09, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Any Craps", payout:"7:1", edge:11.11, prob:11.11, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Any 7", payout:"4:1", edge:16.67, prob:16.67, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Yo (11)", payout:"15:1", edge:11.11, prob:5.56, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Ace Deuce (3)", payout:"15:1", edge:11.11, prob:5.56, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Aces (2)", payout:"30:1", edge:13.89, prob:2.78, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Boxcars (12)", payout:"30:1", edge:13.89, prob:2.78, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"Horn Bet", payout:"Varies", edge:12.50, prob:0, cls:"bad", tag:"avoid", tagLabel:"Avoid" },
+  { name:"C & E", payout:"3:1 / 7:1", edge:11.11, prob:22.22, cls:"bad", tag:"avoid", tagLabel:"Avoid" }
+];
+
+const clsColors = { good: 'var(--green-bright)', ok: 'var(--gold)', bad: 'var(--red-bright)' };
+const tagCls = { best:'tag-best', avoid:'tag-avoid', ok:'tag-ok' };
+
+function renderTable(data) {
+  const tbody = document.getElementById('oddsBody');
+  tbody.innerHTML = '';
+  data.forEach(b => {
+    const tr = document.createElement('tr');
+    if (b.edge === 0) tr.classList.add('best-row');
+    if (b.edge >= 11) tr.classList.add('worst-row');
+    const tagHTML = b.tag ? ` <span class="bet-tag ${tagCls[b.tag]}">${b.tagLabel}</span>` : '';
+    const edgeCls = b.cls === 'good' ? 'edge-good' : b.cls === 'ok' ? 'edge-ok' : 'edge-bad';
+    const probStr = b.prob > 0 ? b.prob.toFixed(2) + '%' : (b.note || 'Varies');
+    tr.innerHTML = `
+      <td><strong>${b.name}</strong>${tagHTML}</td>
+      <td>${b.payout}</td>
+      <td class="${edgeCls}">${b.edge.toFixed(2)}%</td>
+      <td>${probStr}</td>
+      <td><div class="edge-bar"><div class="edge-bar-track"><div class="edge-bar-fill" style="width:${Math.min(b.edge/16.67*100,100)}%;background:${clsColors[b.cls]}"></div></div></div></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+let sortCol = 0, sortAsc = true;
+function sortTable(col) {
+  document.querySelectorAll('.odds-table th').forEach(t => t.classList.remove('sorted'));
+  if (sortCol === col) { sortAsc = !sortAsc; } else { sortCol = col; sortAsc = true; }
+  document.querySelectorAll('.odds-table th')[col].classList.add('sorted');
+  const sorted = [...bets].sort((a, b) => {
+    let va, vb;
+    if (col === 0) { va = a.name; vb = b.name; }
+    else if (col === 1) { va = a.payout; vb = b.payout; }
+    else if (col === 2) { va = a.edge; vb = b.edge; }
+    else if (col === 3) { va = a.prob; vb = b.prob; }
+    if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+    return sortAsc ? va - vb : vb - va;
+  });
+  renderTable(sorted);
+}
+
+// Pyramid
+const combos = {
+  2:['1+1'], 3:['1+2','2+1'], 4:['1+3','2+2','3+1'],
+  5:['1+4','2+3','3+2','4+1'], 6:['1+5','2+4','3+3','4+2','5+1'],
+  7:['1+6','2+5','3+4','4+3','5+2','6+1'],
+  8:['2+6','3+5','4+4','5+3','6+2'], 9:['3+6','4+5','5+4','6+3'],
+  10:['4+6','5+5','6+4'], 11:['5+6','6+5'], 12:['6+6']
+};
+const pyDiv = document.getElementById('pyramid');
+for (let n = 2; n <= 12; n++) {
+  const row = document.createElement('div');
+  row.className = 'pyramid-row';
+  const numSpan = document.createElement('div');
+  numSpan.className = 'pyramid-num';
+  numSpan.textContent = n;
+  row.appendChild(numSpan);
+  const comboDiv = document.createElement('div');
+  comboDiv.className = 'pyramid-combos';
+  combos[n].forEach(c => {
+    const dot = document.createElement('div');
+    dot.className = 'pyramid-dot' + (n === 7 ? ' highlight' : '');
+    dot.textContent = c;
+    comboDiv.appendChild(dot);
+  });
+  row.appendChild(comboDiv);
+  pyDiv.appendChild(row);
+}
+
+renderTable(bets);
+</script>
+
+</body>
+</html>
